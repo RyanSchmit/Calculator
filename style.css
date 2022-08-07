@@ -1,9 +1,21 @@
+body {
+	display: flex;
+	justify-content: center;
+}
+
 
 .calculator {
 	background-color: rgb(151, 151, 243);
+	padding: 0px 100px 100px 200px;
 }
 
 button {
 	background-color: coral;
 	color: white;
+	padding: 20px;
+	font-size: 20px;
+}
+
+.input-display {
+	font-size: 40px;
 }

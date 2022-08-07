@@ -1,9 +1,10 @@
 const numbersClass = document.querySelector(".numbers");
 const numbers = numbersClass.querySelectorAll("button");
-const inputDisplay = document.getElementById("input-display");
+const inputDisplay = document.querySelector(".input-display");
 const operationClass = document.querySelector(".operations");
 const operations = operationClass.querySelectorAll("button");
 const equalSign = document.querySelector(".equal-sign");
+const clearButton = document.querySelector(".clear-btn");
 let operationSelected = false;
 let number1;
 let number2;
@@ -45,22 +46,26 @@ operations.forEach((operation) => {
 
 const evaluate = () => {
 	if (operationSelected == "+") {
-		alert(parseInt(number1) + parseInt(number2));
+		inputDisplay.textContent = parseInt(number1) + parseInt(number2);
 	}
 	else if (operationSelected == "x") {
-		alert(parseInt(number1) * parseInt(number2))
+		inputDisplay.textContent = parseInt(number1) * parseInt(number2);
 	}
 	else if (operationSelected == "/") {
-		alert(parseInt(number1) / parseInt(number2))
+		inputDisplay.textContent = parseInt(number1) / parseInt(number2);
 	}
 	else if (operationSelected == "-") {
-		alert(parseInt(number1) - parseInt(number2))
+		inputDisplay.textContent = parseInt(number1) - parseInt(number2);
 	}
-	inputDisplay.textContent = 0;
 	operations.forEach((operation) => operation.style.backgroundColor = "coral")
 	operations.backgroundColor = "blue";
 }
 
 equalSign.addEventListener('click', evaluate);
 
+const clearFunc = () => {
+	inputDisplay.textContent = 0;
+	operationSelected = false;
+}
 
+clearButton.addEventListener('click', clearFunc)
